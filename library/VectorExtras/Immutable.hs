@@ -32,11 +32,20 @@ chunk chunksAmount vector = let
 {-|
 Construct from an unfoldr of the specified size.
 
-This function is partial. It doesn't check the size or indices.
+It is your responsibility to ensure that the unfoldr is of the same size as the one specified.
 -}
 {-# INLINE unfoldrWithSize #-}
-unfoldrWithSize :: (Mutable.MVector (Mutable vector) a, Vector vector a) => Int -> Unfoldr (Int, a) -> vector a
-unfoldrWithSize size unfoldr =
+unfoldrWithSize :: (Mutable.MVector (Mutable vector) a, Vector vector a) => Int -> Unfoldr a -> vector a
+unfoldrWithSize size unfoldr = assocUnfoldrWithSize size (Unfoldr.zipWithIndex unfoldr)
+
+{-|
+Construct from an unfoldr of associations of the specified size.
+
+It is your responsibility to ensure that the indices in the unfoldr are within the specified size.
+-}
+{-# INLINE assocUnfoldrWithSize #-}
+assocUnfoldrWithSize :: (Mutable.MVector (Mutable vector) a, Vector vector a) => Int -> Unfoldr (Int, a) -> vector a
+assocUnfoldrWithSize size unfoldr =
   runST $ do
     mv <- Mutable.new size
     VectorExtras.Prelude.forM_ unfoldr $ \ (index, element) -> Mutable.write mv index element
@@ -45,11 +54,11 @@ unfoldrWithSize size unfoldr =
 {-|
 Construct from a hash-map of the specified size.
 
-This function is partial. It doesn't check the size or indices.
+It is your responsibility to ensure that the indices in the unfoldr are within the specified size.
 -}
 {-# INLINE indexHashMapWithSize #-}
 indexHashMapWithSize :: (Mutable.MVector (Mutable vector) a, Vector vector a) => Int -> HashMap a Int -> vector a
-indexHashMapWithSize size = unfoldrWithSize size . fmap swap . Unfoldr.hashMapAssocs
+indexHashMapWithSize size = assocUnfoldrWithSize size . fmap swap . Unfoldr.hashMapAssocs
 
 {-|
 Construct from a hash-map.
