@@ -17,7 +17,7 @@ toVector (Accumulator size list) =
   GenericExtras.fromReverseListN size list
 
 -- |
--- Constructor of vectors optimised by appending elements one by one.
+-- Constructor of vectors optimised for appending elements one by one.
 --
 -- Very useful as accumulator in folds.
 data Accumulator a
