@@ -6,12 +6,13 @@ module VectorExtras.Accumulator
 
     -- * Execution
     toVector,
+    toReverseVector,
   )
 where
 
 import Data.Vector.Generic
 import qualified VectorExtras.Generic as GenericExtras
-import VectorExtras.Prelude hiding (length)
+import VectorExtras.Prelude hiding (fromListN, length)
 
 -- |
 -- Finalise the accumulator as vector.
@@ -19,6 +20,13 @@ import VectorExtras.Prelude hiding (length)
 toVector :: Vector v a => Accumulator a -> v a
 toVector (Accumulator size list) =
   GenericExtras.fromReverseListN size list
+
+-- |
+-- Finalise the accumulator as vector in reverse order.
+{-# INLINE toReverseVector #-}
+toReverseVector :: Vector v a => Accumulator a -> v a
+toReverseVector (Accumulator size list) =
+  fromListN size list
 
 -- |
 -- Constructor of vectors optimised for appending elements one by one,
