@@ -2,6 +2,7 @@
 -- Utility for construction of vectors when the size is not known ahead.
 module VectorExtras.Accumulator
   ( Accumulator,
+    init,
     add,
 
     -- * Execution
@@ -10,9 +11,9 @@ module VectorExtras.Accumulator
   )
 where
 
-import Data.Vector.Generic
+import Data.Vector.Generic (Vector, fromListN)
 import qualified VectorExtras.Generic as GenericExtras
-import VectorExtras.Prelude hiding (fromListN, length)
+import VectorExtras.Prelude hiding (fromListN, init, length)
 
 -- |
 -- Finalise the accumulator as vector.
@@ -40,6 +41,10 @@ toReverseVector (Accumulator size list) =
 -- (starting from the last element).
 data Accumulator a
   = Accumulator !Int ![a]
+
+-- | Create an empty accumulator.
+init :: Accumulator a
+init = Accumulator 0 []
 
 -- |
 -- Add an element to the accumulator.
