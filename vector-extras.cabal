@@ -26,12 +26,14 @@ library
   default-language: Haskell2010
   exposed-modules:
     VectorExtras.Accumulator
+    VectorExtras.Combinators
     VectorExtras.Generic
     VectorExtras.Generic.Mutable
     -- TODO: Rearrange
     VectorExtras.Immutable
     VectorExtras.Immutable.FoldM.PrimMonad.Index
   other-modules:
+    VectorExtras.Combinators.Helpers
     VectorExtras.Prelude
   build-depends:
     base >=4.11 && <5,
