@@ -22,3 +22,17 @@ sepBy1 getElement getSeparator =
   do
     element <- getElement
     Acc.toVector <$> accMany (Acc.add element Acc.init) (getSeparator *> getElement)
+
+sepFollowed :: (MonadPlus m, Vector v a) => m sep -> m end -> m a -> m (v a)
+sepFollowed getSeparator getEnd getElement =
+  orPure Vector.empty $ sepFollowed1 getSeparator getEnd getElement
+
+sepFollowed1 :: (MonadPlus m, Vector v a) => m sep -> m end -> m a -> m (v a)
+sepFollowed1 getSeparator getEnd getElement =
+  do
+    element <- getElement
+    acc <- collect (Acc.add element Acc.init)
+    return $ Acc.toVector acc
+  where
+    collect !acc =
+      getEnd $> acc <|> (getSeparator >> getElement >>= \e -> collect (Acc.add e acc))
