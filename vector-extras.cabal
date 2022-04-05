@@ -33,6 +33,7 @@ library
     VectorExtras.Immutable
     VectorExtras.Immutable.FoldM.PrimMonad.Index
   other-modules:
+    VectorExtras.Basics.Generic
     VectorExtras.Combinators.Helpers
     VectorExtras.Prelude
   build-depends:
