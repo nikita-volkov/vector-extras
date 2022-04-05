@@ -5,6 +5,7 @@ module VectorExtras.Accumulator
     init,
     add,
     addList,
+    addFoldable,
 
     -- * Execution
     toVector,
@@ -58,5 +59,11 @@ add head (Accumulator size tail) =
 -- Add a list of elements to the accumulator.
 {-# INLINE addList #-}
 addList :: [a] -> Accumulator a -> Accumulator a
-addList list acc =
-  foldl' (\acc a -> add a acc) acc list
+addList = addFoldable
+
+-- |
+-- Add a foldable of elements to the accumulator.
+{-# INLINE addFoldable #-}
+addFoldable :: Foldable f => f a -> Accumulator a -> Accumulator a
+addFoldable foldable acc =
+  foldl' (\acc a -> add a acc) acc foldable
