@@ -1,5 +1,5 @@
 name: vector-extras
-version: 0.2.7
+version: 0.2.7.1
 category: Vector
 synopsis: Utilities for the "vector" library
 description:
@@ -43,4 +43,4 @@ library
     foldl >=1.4 && <2,
     hashable >=1 && <2,
     unordered-containers >=0.2 && <0.3,
-    vector >=0.12 && <0.13
+    vector >=0.12 && <0.14

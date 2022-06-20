@@ -1,6 +1,6 @@
 module VectorExtras.Generic
   ( module Basics,
-    fromFoldable
+    fromFoldable,
   )
 where
 

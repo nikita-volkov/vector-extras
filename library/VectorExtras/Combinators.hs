@@ -21,8 +21,6 @@ sepBy = flip sep
 sepBy1 :: (MonadPlus m, Vector v a) => m a -> m sep -> m (v a)
 sepBy1 = flip sep1
 
--- *
-
 -- |
 -- Same as 'sepBy' but with arguments flipped.
 -- Because the order of arguments in 'sepBy' does not feel right.
