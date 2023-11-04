@@ -4,7 +4,6 @@ module VectorExtras.Combinators where
 
 import Data.Vector.Generic (Vector)
 import qualified Data.Vector.Generic as Vector
-import VectorExtras.Accumulator (Accumulator)
 import qualified VectorExtras.Accumulator as Acc
 import VectorExtras.Combinators.Helpers
 import VectorExtras.Prelude
