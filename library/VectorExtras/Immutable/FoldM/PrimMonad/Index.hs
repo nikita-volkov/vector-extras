@@ -7,7 +7,7 @@ import VectorExtras.Prelude hiding (length)
 
 -- |
 -- Fold on indices in PrimMonad.
-type IndexPrimMonadFoldM result = forall m. PrimMonad m => FoldM m Int result
+type IndexPrimMonadFoldM result = forall m. (PrimMonad m) => FoldM m Int result
 
 -- |
 -- Given the size of the vector, construct a fold, which produces a vector of
