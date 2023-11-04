@@ -1,6 +1,6 @@
 cabal-version: 3.0
 name:          vector-extras
-version:       0.2.8
+version:       0.2.8.1
 category:      Vector
 synopsis:      Utilities for the "vector" library
 description:
