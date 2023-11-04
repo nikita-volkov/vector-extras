@@ -20,14 +20,14 @@ import VectorExtras.Prelude hiding (fromListN, init, length)
 -- |
 -- Finalise the accumulator as vector.
 {-# INLINE toVector #-}
-toVector :: Vector v a => Accumulator a -> v a
+toVector :: (Vector v a) => Accumulator a -> v a
 toVector (Accumulator size list) =
   Basics.fromReverseListN size list
 
 -- |
 -- Finalise the accumulator as vector in reverse order.
 {-# INLINE toReverseVector #-}
-toReverseVector :: Vector v a => Accumulator a -> v a
+toReverseVector :: (Vector v a) => Accumulator a -> v a
 toReverseVector (Accumulator size list) =
   fromListN size list
 
@@ -64,6 +64,6 @@ addList = addFoldable
 -- |
 -- Add a foldable of elements to the accumulator.
 {-# INLINE addFoldable #-}
-addFoldable :: Foldable f => f a -> Accumulator a -> Accumulator a
+addFoldable :: (Foldable f) => f a -> Accumulator a -> Accumulator a
 addFoldable foldable acc =
   foldl' (\acc a -> add a acc) acc foldable

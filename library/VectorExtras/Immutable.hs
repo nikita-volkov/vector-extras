@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -Wno-redundant-constraints #-}
+
 module VectorExtras.Immutable where
 
 import qualified Data.HashMap.Strict as HashMap
@@ -23,8 +25,9 @@ chunk chunksAmount vector =
                 then chunkIndex * largerChunkSize
                 else largerChunksElementsAmount + (chunkIndex - largerChunksAmount) * smallerChunkSize
          in generate (if chunkIndex < largerChunksAmount then largerChunkSize else smallerChunkSize) $ \elemIndex ->
-              unsafeIndex vector $
-                chunkOriginalIndex + elemIndex
+              unsafeIndex vector
+                $ chunkOriginalIndex
+                + elemIndex
 
 -- |
 -- Construct from an unfoldr of the specified size.
