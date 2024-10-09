@@ -8,10 +8,10 @@ description:
   Users should be prepared for frequent updates.
 
 stability:     Experimental
-homepage:      https://github.com/metrix-ai/vector-extras
-bug-reports:   https://github.com/metrix-ai/vector-extras/issues
+homepage:      https://github.com/nikita-volkov/vector-extras
+bug-reports:   https://github.com/nikita-volkov/vector-extras/issues
 author:        Nikita Volkov <nikita.y.volkov@mail.ru>
-maintainer:    Metrix.AI Tech Team <tech@metrix.ai>
+maintainer:    Nikita Volkov <nikita.y.volkov@mail.ru>
 copyright:     (c) 2018, Metrix.AI
 license:       MIT
 license-file:  LICENSE
