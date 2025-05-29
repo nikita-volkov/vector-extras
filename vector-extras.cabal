@@ -18,7 +18,7 @@ license-file:  LICENSE
 
 source-repository head
   type:     git
-  location: git://github.com/metrix-ai/vector-extras.git
+  location: git://github.com/nikita-volkov/vector-extras.git
 
 library
   hs-source-dirs:     library
