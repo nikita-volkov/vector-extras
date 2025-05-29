@@ -67,7 +67,6 @@ library
     VectorExtras.Combinators
     VectorExtras.Generic
     VectorExtras.Generic.Mutable
-    VectorExtras.Immutable
 
   -- TODO: Rearrange
   other-modules:

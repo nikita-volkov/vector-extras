@@ -1,14 +1,18 @@
 module VectorExtras.Generic
-  ( module Basics,
-    fromFoldable,
+  ( fromFoldable,
     fromFoldableNarrowing,
+    fromReverseListN,
+    fromAssocListWithGen,
+    fromAssocListWithDef,
+    initialized,
+    chunk,
   )
 where
 
 import Data.Vector.Generic hiding (foldl')
 import qualified VectorExtras.Accumulator as VAcc
-import VectorExtras.Basics.Generic as Basics
-import VectorExtras.Prelude
+import VectorExtras.Basics.Generic
+import VectorExtras.Prelude hiding (length)
 
 {-# INLINE fromFoldable #-}
 fromFoldable :: (Foldable f, Vector v a) => f a -> v a
@@ -23,3 +27,24 @@ fromFoldableNarrowing narrow =
     step acc el = case narrow el of
       Nothing -> acc
       Just narrowed -> VAcc.add narrowed acc
+
+-- |
+-- Distribute the elements of a vector across the specified amount of chunks.
+--
+-- Depending on the size of the vector the first chunks may be larger in size then the others by one.
+chunk :: (Vector v1 a, Vector v2 (v1 a)) => Int -> v1 a -> v2 (v1 a)
+chunk chunksAmount vector =
+  let vectorLength = length vector
+      smallerChunkSize = div vectorLength chunksAmount
+      largerChunkSize = succ smallerChunkSize
+      largerChunksAmount = vectorLength - smallerChunkSize * chunksAmount
+      largerChunksElementsAmount = largerChunksAmount * largerChunkSize
+   in generate chunksAmount $ \chunkIndex ->
+        let chunkOriginalIndex =
+              if largerChunksAmount > chunkIndex
+                then chunkIndex * largerChunkSize
+                else largerChunksElementsAmount + (chunkIndex - largerChunksAmount) * smallerChunkSize
+         in generate (if chunkIndex < largerChunksAmount then largerChunkSize else smallerChunkSize) $ \elemIndex ->
+              unsafeIndex vector
+                $ chunkOriginalIndex
+                + elemIndex
