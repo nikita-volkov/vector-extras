@@ -1,4 +1,4 @@
-module VectorExtras.Prelude
+module Base.Prelude
   ( module Exports,
   )
 where

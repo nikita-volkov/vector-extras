@@ -1,8 +1,8 @@
 module VectorExtras.Combinators.Helpers where
 
+import Base.Prelude
 import VectorExtras.Accumulator (Accumulator)
 import qualified VectorExtras.Accumulator as Acc
-import VectorExtras.Prelude
 
 -- * General
 

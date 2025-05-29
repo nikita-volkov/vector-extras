@@ -9,10 +9,10 @@ module VectorExtras.Generic
   )
 where
 
+import Base.Generic
+import Base.Prelude hiding (length)
 import Data.Vector.Generic hiding (foldl')
 import qualified VectorExtras.Accumulator as VAcc
-import VectorExtras.Basics.Generic
-import VectorExtras.Prelude hiding (length)
 
 {-# INLINE fromFoldable #-}
 fromFoldable :: (Foldable f, Vector v a) => f a -> v a

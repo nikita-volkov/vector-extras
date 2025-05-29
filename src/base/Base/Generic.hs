@@ -1,9 +1,9 @@
-module VectorExtras.Basics.Generic where
+module Base.Generic where
 
+import qualified Base.Generic.Mutable as Mut
+import Base.Prelude
 import Data.Vector.Generic
 import qualified Data.Vector.Generic.Mutable as Mut
-import qualified VectorExtras.Generic.Mutable as Mut
-import VectorExtras.Prelude
 
 -- |
 -- Notice: It is your responsibility to ensure that the indices

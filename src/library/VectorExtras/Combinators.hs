@@ -2,11 +2,11 @@
 -- Vector-specialised combinators often used for parsing.
 module VectorExtras.Combinators where
 
+import Base.Prelude
 import Data.Vector.Generic (Vector)
 import qualified Data.Vector.Generic as Vector
 import qualified VectorExtras.Accumulator as Acc
 import VectorExtras.Combinators.Helpers
-import VectorExtras.Prelude
 
 -- * Common
 

@@ -13,16 +13,16 @@ module VectorExtras.Accumulator
   )
 where
 
+import qualified Base.Generic
+import Base.Prelude hiding (fromListN, init, length)
 import Data.Vector.Generic (Vector, fromListN)
-import qualified VectorExtras.Basics.Generic as Basics
-import VectorExtras.Prelude hiding (fromListN, init, length)
 
 -- |
 -- Finalise the accumulator as vector.
 {-# INLINE toVector #-}
 toVector :: (Vector v a) => Accumulator a -> v a
 toVector (Accumulator size list) =
-  Basics.fromReverseListN size list
+  Base.Generic.fromReverseListN size list
 
 -- |
 -- Finalise the accumulator as vector in reverse order.
