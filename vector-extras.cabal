@@ -1,6 +1,6 @@
 cabal-version: 3.4
 name: vector-extras
-version: 0.2.8.2
+version: 0.3
 category: Vector
 synopsis: Utilities for the "vector" library
 description:
@@ -82,19 +82,10 @@ library
     VectorExtras.Generic.Mutable
 
   other-modules:
-    VectorExtras.Combinators.Helpers
-
-  build-depends:
-    vector >=0.12 && <0.14,
-    vector-extras:base,
-
-library base
-  import: base
-  hs-source-dirs: src/base
-  exposed-modules:
     Base.Generic
     Base.Generic.Mutable
     Base.Prelude
+    VectorExtras.Combinators.Helpers
 
   build-depends:
     base >=4.11 && <5,
