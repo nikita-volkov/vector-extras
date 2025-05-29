@@ -25,15 +25,10 @@ import Data.Foldable as Exports hiding (toList)
 import Data.Function as Exports hiding (id, (.))
 import Data.Functor as Exports hiding (unzip)
 import Data.Functor.Identity as Exports
-import Data.HashMap.Strict as Exports (HashMap)
-import Data.Hashable as Exports (Hashable)
 import Data.IORef as Exports
 import Data.Int as Exports
-import Data.IntMap.Strict as Exports (IntMap)
-import Data.IntSet as Exports (IntSet)
 import Data.Ix as Exports
 import Data.List as Exports hiding (all, and, any, concat, concatMap, elem, find, foldl, foldl', foldl1, foldr, foldr1, isSubsequenceOf, mapAccumL, mapAccumR, maximum, maximumBy, minimum, minimumBy, notElem, or, product, sortOn, sum, uncons)
-import Data.Map.Strict as Exports (Map)
 import Data.Maybe as Exports
 import Data.Monoid as Exports hiding (First (..), Last (..), (<>))
 import Data.Ord as Exports
@@ -41,8 +36,6 @@ import Data.Proxy as Exports
 import Data.Ratio as Exports
 import Data.STRef as Exports
 import Data.Semigroup as Exports
-import Data.Sequence as Exports (Seq)
-import Data.Set as Exports (Set)
 import Data.String as Exports
 import Data.Traversable as Exports
 import Data.Tuple as Exports
@@ -50,7 +43,6 @@ import Data.Unique as Exports
 import Data.Version as Exports
 import Data.Word as Exports
 import Debug.Trace as Exports
-import DeferredFolds.Unfoldr as Exports (Unfoldr)
 import Foreign.ForeignPtr as Exports
 import Foreign.Ptr as Exports
 import Foreign.StablePtr as Exports

@@ -68,7 +68,6 @@ library
     VectorExtras.Generic
     VectorExtras.Generic.Mutable
     VectorExtras.Immutable
-    VectorExtras.Immutable.FoldM.PrimMonad.Index
 
   -- TODO: Rearrange
   other-modules:
@@ -78,9 +77,4 @@ library
 
   build-depends:
     base >=4.11 && <5,
-    containers >=0.5 && <0.8,
-    deferred-folds >=0.9.7.1 && <0.10,
-    foldl >=1.4 && <2,
-    hashable >=1 && <2,
-    unordered-containers >=0.2 && <0.3,
     vector >=0.12 && <0.14,
