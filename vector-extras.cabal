@@ -1,30 +1,28 @@
 cabal-version: 3.0
-name:          vector-extras
-version:       0.2.8.2
-category:      Vector
-synopsis:      Utilities for the "vector" library
+name: vector-extras
+version: 0.2.8.2
+category: Vector
+synopsis: Utilities for the "vector" library
 description:
   This library is in an experimental state.
   Users should be prepared for frequent updates.
 
-stability:     Experimental
-homepage:      https://github.com/nikita-volkov/vector-extras
-bug-reports:   https://github.com/nikita-volkov/vector-extras/issues
-author:        Nikita Volkov <nikita.y.volkov@mail.ru>
-maintainer:    Nikita Volkov <nikita.y.volkov@mail.ru>
-copyright:     (c) 2018, Metrix.AI
-license:       MIT
-license-file:  LICENSE
+stability: Experimental
+homepage: https://github.com/nikita-volkov/vector-extras
+bug-reports: https://github.com/nikita-volkov/vector-extras/issues
+author: Nikita Volkov <nikita.y.volkov@mail.ru>
+maintainer: Nikita Volkov <nikita.y.volkov@mail.ru>
+copyright: (c) 2018, Metrix.AI
+license: MIT
+license-file: LICENSE
 
 source-repository head
-  type:     git
+  type: git
   location: git://github.com/nikita-volkov/vector-extras.git
 
 library
-  hs-source-dirs:     library
+  hs-source-dirs: library
   default-extensions:
-    NoImplicitPrelude
-    NoMonomorphismRestriction
     Arrows
     BangPatterns
     ConstraintKinds
@@ -46,6 +44,8 @@ library
     MagicHash
     MultiParamTypeClasses
     MultiWayIf
+    NoImplicitPrelude
+    NoMonomorphismRestriction
     OverloadedStrings
     ParallelListComp
     PatternGuards
@@ -61,7 +61,7 @@ library
     TypeOperators
     UnboxedTuples
 
-  default-language:   Haskell2010
+  default-language: Haskell2010
   exposed-modules:
     VectorExtras.Accumulator
     VectorExtras.Combinators
@@ -77,10 +77,10 @@ library
     VectorExtras.Prelude
 
   build-depends:
-    , base >=4.11 && <5
-    , containers >=0.5 && <0.8
-    , deferred-folds >=0.9.7.1 && <0.10
-    , foldl >=1.4 && <2
-    , hashable >=1 && <2
-    , unordered-containers >=0.2 && <0.3
-    , vector >=0.12 && <0.14
+    base >=4.11 && <5,
+    containers >=0.5 && <0.8,
+    deferred-folds >=0.9.7.1 && <0.10,
+    foldl >=1.4 && <2,
+    hashable >=1 && <2,
+    unordered-containers >=0.2 && <0.3,
+    vector >=0.12 && <0.14,
